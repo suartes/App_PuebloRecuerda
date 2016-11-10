@@ -15,5 +15,7 @@ class Iniciativa(models.Model):
     enlace = models.URLField()
     diputado = models.ForeignKey(Diputado,null=True,blank=True)
 
+    def __unicode__(self):
+        return '{} {}'.format(self.num, self.nombre)
 
 

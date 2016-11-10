@@ -1,0 +1,19 @@
+<h1>Listado de leyes</h1>
+<p>
+    <a href="{% url "leyes:iniciativa_new" %}">Agregar iniciativa</a>
+</p>
+<li>
+    {% if iniciativa %}
+    {% for iniciativa in iniciativa %}
+        <li>{{ objet.iniciativa.nombre}}</li>
+        <li>{{ iniciativa.id}}</li>
+        <li><a href="{% url "leyes:iniciativa_list" %}">ver iniciativa</a></li>
+        <li><a href="{% url "leyes:iniciativa_list" %}">actualizar iniciativa</a></li>
+        <li><a href="{% url "leyes:iniciativa_list" %}">eliminar </a></li>
+    {% endfor %}
+    {%else%}
+        <h1>No hay registros de iniciativas</h1>
+    {% endif %}
+
+
+</li>
