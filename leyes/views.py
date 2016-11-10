@@ -5,7 +5,7 @@ from django.http import HttpResponse
 #from django.views.generic.detail import DetailView
 #from django.views.generic.edit import(
 #	CreateView,
-
+from .models import Iniciativa
 from .forms import IniciativaForm
 
 def index(request):
@@ -21,6 +21,18 @@ def iniciativa_view(request):
 		form=IniciativaForm()
 
 	return render(request,'leyes/iniciativa_form.html',{'form':form})
+
+
+def iniciativa_list(request):
+	iniciativa = Iniciativa.objects.all().order_by('id')
+	contexto = {'iniciativas':iniciativa}
+	return render(request, 'leyes/iniciativa_list.html', contexto)
+
+def iniciativa_update(request):
+	iniciativa = Iniciativa.objects.all().order_by('id')
+	contexto = {'iniciativas':iniciativa}
+	return render(request, 'leyes/iniciativa_list.html', contexto)
+
 
 
 
