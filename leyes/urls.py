@@ -8,3 +8,5 @@ urlpatterns = (
     #url(r'^leyes/editar/(?P<pk>\d+)$', IniciativaUpdate.as_view(), name="iniciativa_update"),
     #url(r'^leyes/borrar/(?P<pk>\d+)$', IniciativaDelete.as_view(), name="iniciativa_delete"),
 )
+
+
