@@ -26,8 +26,8 @@
 			<td>{{ iniciativa.enlace }}</td>
 			<td>{{ iniciativa.diputado }}</td>
 			<td>
-				<a class="btn btn-primary" href="#">Editar</a>
-				<a class="btn btn-danger" href="#">Eliminar</a>
+				<a class="btn btn-primary" href="{%url 'leyes:iniciativa_editar' iniciativa.id %}">Editar</a>
+				<a class="btn btn-primary" href="{%url 'leyes:iniciativa_eliminar' iniciativa.id %}">Eliminar</a>
 			</td>
 		</tr>
 		{% endfor %}

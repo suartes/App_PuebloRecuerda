@@ -28,15 +28,23 @@ def iniciativa_list(request):
 	contexto = {'iniciativas':iniciativa}
 	return render(request, 'leyes/iniciativa_list.html', contexto)
 
-def iniciativa_update(request):
-	iniciativa = Iniciativa.objects.all().order_by('id')
-	contexto = {'iniciativas':iniciativa}
-	return render(request, 'leyes/iniciativa_list.html', contexto)
+def iniciativa_edit(request, id_iniciativa):
+	iniciativa = Iniciativa.objects.get(id=id_iniciativa)
+	if request.method == 'GET':
+		form = IniciativaForm(instance=iniciativa)
+	else:
+		form = IniciativaForm(request.POST, instance=iniciativa)
+		if form.is_valid():
+			form.save()
+		return redirect('leyes:iniciativa_listar')
+	return render(request, 'leyes/iniciativa_form.html', {'form':form})
 
-
-
-
-
+def iniciativa_delete(request, id_iniciativa):
+	iniciativa = Iniciativa.objects.get(id=id_iniciativa)
+	if request.method == 'POST':
+		iniciativa.delete()
+		return redirect('leyes:iniciativa_listar')
+	return render(request, 'leyes/iniciativa_delete.html', {'iniciativa':iniciativa})
 
 
 """class IniciativaList(ListView):
