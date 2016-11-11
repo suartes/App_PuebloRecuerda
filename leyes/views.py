@@ -1,10 +1,7 @@
-from django.core.urlresolvers import reverse_lazy
+#from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
-#from django.views.generic import View
-#from django.views.generic.detail import DetailView
-#from django.views.generic.edit import(
-#	CreateView,
+#from django.http import HttpResponse
+
 from .models import Iniciativa
 from .forms import IniciativaForm
 
@@ -60,7 +57,6 @@ class IniciativaCreation(CreateView):
 	model = Iniciativa
 	success_url = reverse_lazy('leyes:iniciativa_create')
 	fields = ['num', 'nombre', 'turno', 'comision', 'resolutivos', 'enlace','diputado']
-
 
 class IniciativaUpdate(UpdateView):
 	model = Iniciativa

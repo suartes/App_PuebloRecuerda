@@ -1,3 +1,4 @@
+{% extends 'leyes/index.html' %}
 {% block content %}
 
 <table class="table table-bordered">
@@ -27,7 +28,7 @@
 			<td>{{ iniciativa.diputado }}</td>
 			<td>
 				<a class="btn btn-primary" href="{%url 'leyes:iniciativa_editar' iniciativa.id %}">Editar</a>
-				<a class="btn btn-primary" href="{%url 'leyes:iniciativa_eliminar' iniciativa.id %}">Eliminar</a>
+				<a class="btn btn-danger" href="{%url 'leyes:iniciativa_eliminar' iniciativa.id %}">Eliminar</a>
 			</td>
 		</tr>
 		{% endfor %}

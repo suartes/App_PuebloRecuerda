@@ -1,10 +1,12 @@
+{% extends 'leyes/base.html' %}
+
 {%block content%}
 
 <form method="post">
     {% csrf_token %}
     <h3>¿Estás seguro que deseas borrar la iniciativa"{{ iniciativa.nombre }}"?</h3>
-    <button type="submit">Si, eliminar</button> >
-    <a href="{% url 'leyes:iniciativa_listar' %}">cancelar</a>
+    <button class="btn btn-danger" type="submit">Sí, eliminar</button>
+	<a class= "btn btn-default" href="{% url 'leyes:iniciativa_listar' %}">Cancelar</a>
 </form>
 
 {%endblock%}
